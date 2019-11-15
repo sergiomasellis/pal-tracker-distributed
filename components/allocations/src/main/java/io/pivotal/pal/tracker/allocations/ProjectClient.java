@@ -10,7 +10,7 @@ public class ProjectClient {
 
     private final RestOperations restOperations;
     private final String registrationServerEndpoint;
-    private final Map<Long, ProjectInfo> cacheForMap = new ConcurrentHashMap<>();
+    private final Map<Long, ProjectInfo> projectsCache = new ConcurrentHashMap<>();
 
     public ProjectClient(RestOperations restOperations, String registrationServerEndpoint) {
         this.restOperations= restOperations;
@@ -20,11 +20,13 @@ public class ProjectClient {
     @HystrixCommand(fallbackMethod = "getProjectFromCache")
     public ProjectInfo getProject(long projectId) {
         ProjectInfo project = restOperations.getForObject(registrationServerEndpoint + "/projects/" + projectId, ProjectInfo.class);
-        cacheForMap.put(projectId, project);
+
+        projectsCache.put(projectId, project);
+
         return project;
     }
 
-    public ProjectInfo getProjectFromCache(Long projectId) {
-        return cacheForMap.get(projectId);
+    public ProjectInfo getProjectFromCache(long projectId) {
+        return projectsCache.get(projectId);
     }
 }
