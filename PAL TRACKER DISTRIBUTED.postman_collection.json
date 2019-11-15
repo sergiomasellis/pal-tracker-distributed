@@ -1,0 +1,399 @@
+{
+	"info": {
+		"_postman_id": "f0caf2c4-dcd7-4e37-9a7c-59dc34f40651",
+		"name": "PAL TRACKER DISTRIBUTED",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "registration",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"Sergio\"}"
+				},
+				"url": {
+					"raw": "https://registration-l33t.apps.evans.pal.pivotal.io/registration",
+					"protocol": "https",
+					"host": [
+						"registration-l33t",
+						"apps",
+						"evans",
+						"pal",
+						"pivotal",
+						"io"
+					],
+					"path": [
+						"registration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User 3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://registration-l33t.apps.evans.pal.pivotal.io/users/3",
+					"protocol": "https",
+					"host": [
+						"registration-l33t",
+						"apps",
+						"evans",
+						"pal",
+						"pivotal",
+						"io"
+					],
+					"path": [
+						"users",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Account 3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://registration-l33t.apps.evans.pal.pivotal.io/accounts?ownerId=3",
+					"protocol": "https",
+					"host": [
+						"registration-l33t",
+						"apps",
+						"evans",
+						"pal",
+						"pivotal",
+						"io"
+					],
+					"path": [
+						"accounts"
+					],
+					"query": [
+						{
+							"key": "ownerId",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Project 3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"Basket Weaving\", \"accountId\":3 }"
+				},
+				"url": {
+					"raw": "https://registration-l33t.apps.evans.pal.pivotal.io/projects",
+					"protocol": "https",
+					"host": [
+						"registration-l33t",
+						"apps",
+						"evans",
+						"pal",
+						"pivotal",
+						"io"
+					],
+					"path": [
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Projects for user3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://registration-l33t.apps.evans.pal.pivotal.io/projects?accountId=2",
+					"protocol": "https",
+					"host": [
+						"registration-l33t",
+						"apps",
+						"evans",
+						"pal",
+						"pivotal",
+						"io"
+					],
+					"path": [
+						"projects"
+					],
+					"query": [
+						{
+							"key": "accountId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Allocation for user 3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"projectId\": 2, \"userId\": 3, \"firstDay\": \"2015-05-17\", \"lastDay\": \"2015-05-18\"}"
+				},
+				"url": {
+					"raw": "https://allocations-l33t.apps.evans.pal.pivotal.io/allocations",
+					"protocol": "https",
+					"host": [
+						"allocations-l33t",
+						"apps",
+						"evans",
+						"pal",
+						"pivotal",
+						"io"
+					],
+					"path": [
+						"allocations"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Allocated Project for user 3",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://allocations-l33t.apps.evans.pal.pivotal.io/allocations?projectId=2",
+					"protocol": "https",
+					"host": [
+						"allocations-l33t",
+						"apps",
+						"evans",
+						"pal",
+						"pivotal",
+						"io"
+					],
+					"path": [
+						"allocations"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "projectId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Allocation for project 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"projectId\": 2, \"name\": \"Find some reeds\"}"
+				},
+				"url": {
+					"raw": "https://backlog-l33t.apps.evans.pal.pivotal.io/stories",
+					"protocol": "https",
+					"host": [
+						"backlog-l33t",
+						"apps",
+						"evans",
+						"pal",
+						"pivotal",
+						"io"
+					],
+					"path": [
+						"stories"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get stories for project 2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://backlog-l33t.apps.evans.pal.pivotal.io/stories?projectId=2",
+					"protocol": "https",
+					"host": [
+						"backlog-l33t",
+						"apps",
+						"evans",
+						"pal",
+						"pivotal",
+						"io"
+					],
+					"path": [
+						"stories"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "projectId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create time entries for project 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"projectId\": 2, \"userId\": 3, \"date\": \"2015-05-17\", \"hours\": 6}"
+				},
+				"url": {
+					"raw": "https://timesheets-l33t.apps.evans.pal.pivotal.io/time-entries/",
+					"protocol": "https",
+					"host": [
+						"timesheets-l33t",
+						"apps",
+						"evans",
+						"pal",
+						"pivotal",
+						"io"
+					],
+					"path": [
+						"time-entries",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get time entries for user 3",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://timesheets-l33t.apps.evans.pal.pivotal.io/time-entries?userId=3",
+					"protocol": "https",
+					"host": [
+						"timesheets-l33t",
+						"apps",
+						"evans",
+						"pal",
+						"pivotal",
+						"io"
+					],
+					"path": [
+						"time-entries"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "userId",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
