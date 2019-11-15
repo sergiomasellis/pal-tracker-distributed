@@ -17,7 +17,6 @@ buildscript {
     }
 
     repositories {
-        mavenCentral()
         jcenter()
     }
 
@@ -36,7 +35,6 @@ subprojects {
     defaultTasks "clean", "build"
 
     repositories {
-        mavenCentral()
         jcenter()
     }
 
